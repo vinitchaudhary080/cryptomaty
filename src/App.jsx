@@ -51,7 +51,7 @@ export default function App() {
               <Pricing />
               <FAQS />
               <Banners />
-              <FooterSection />
+              <FooterSection onGetInTouch={() => setIsFormOpen(true)} />
             </>
           }
         />

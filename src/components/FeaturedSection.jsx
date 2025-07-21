@@ -33,7 +33,7 @@ const features = [
 ];
 
 const FeaturedSection = () => (
-  <section className="py-16">
+  <section id="features" className="py-16">
     <div className="container mx-auto px-4">
       {/* Heading */}
       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-2">

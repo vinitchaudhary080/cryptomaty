@@ -1,216 +1,167 @@
 // src/components/ContactFormModal.jsx
-import React, { useState } from 'react'
-import emailjs from 'emailjs-com'
-import phoneIcon from '../assets/Phone Rounded.svg'
-import letterIcon from '../assets/Letter.svg'
-import buildingIcon from '../assets/Buildings.svg'
+import React, { useState } from "react";
+import emailjs from "emailjs-com";
+import phoneIcon from "../assets/Phone Rounded.svg";
+import letterIcon from "../assets/Letter.svg";
+import locationIcon from "../assets/Buildings.svg";
+import bgImage from "../assets/contact-bg.png"; // your office‐interior image
 
-// initialize EmailJS with your user ID
-emailjs.init('ytKzA4OdeQE6M0Ua2')
+emailjs.init("ytKzA4OdeQE6M0Ua2");
 
 export default function ContactFormModal({ onClose }) {
   const [form, setForm] = useState({
-    name: '',
-    mobile: '',
-    email: '',
-    service: '',
-    message: '',
-  })
-  const [status, setStatus] = useState(null) // 'success' | 'error' | null
+    name: "",
+    mobile: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState(null); // { type, message }
 
-  const services = [
-    'Company Incorporation',
-    'GST Registration Online',
-    'Limited Liability Partnership',
-    'Income Tax Return Filling',
-    'GST Return Filling',
-    'MSME Registration',
-    'Trademark Registration',
-    'ROC Compliances',
-    'Online Trust Registration',
-    'Audit & Assurance Services',
-    'Accounting and Book Keeping Services',
-  ]
-
-  const handleChange = e => {
-    const { name, value } = e.target
-    setForm(prev => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const validate = () => {
     if (!/^\d{10}$/.test(form.mobile)) {
-      setStatus({ type: 'error', message: 'Mobile number must be exactly 10 digits.' })
-      return false
+      setStatus({ type: "error", message: "Mobile must be 10 digits." });
+      return false;
     }
     if (!/^[A-Za-z0-9._%+-]+@gmail\.com$/.test(form.email)) {
-      setStatus({ type: 'error', message: 'Email must end with @gmail.com.' })
-      return false
+      setStatus({ type: "error", message: "Email must end with @gmail.com." });
+      return false;
     }
-    return true
-  }
+    return true;
+  };
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    setStatus(null)
-    if (!validate()) return
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus(null);
+    if (!validate()) return;
 
     const templateParams = {
-      name: form.name,
-      mobile: form.mobile,
-      email: form.email,
-      service: form.service,
-      message: form.message,
+      ...form,
       time: new Date().toLocaleString(),
-    }
+    };
 
     emailjs
-      .send('service_clv1zdq', 'template_p0icebc', templateParams)
+      .send("service_clv1zdq", "template_p0icebc", templateParams)
       .then(() => {
-        setStatus({ type: 'success', message: 'Your message has been sent! We will be in touch soon.' })
-        setForm({ name: '', mobile: '', email: '', service: '', message: '' })
+        setStatus({ type: "success", message: "Message sent! We’ll be in touch." });
+        setForm({ name: "", mobile: "", email: "", message: "" });
       })
-      .catch(err => {
-        console.error('EmailJS error:', err)
-        setStatus({ type: 'error', message: 'Something went wrong. Please try again later.' })
-      })
-  }
+      .catch(() =>
+        setStatus({
+          type: "error",
+          message: "Oops! Something went wrong. Please try later.",
+        })
+      );
+  };
 
   return (
-    // Make the viewport itself scrollable on small screens
-    <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto px-4 py-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-6 overflow-y-auto">
       {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black opacity-50"
-        onClick={onClose}
-      />
+      <div className="absolute inset-0 bg-black opacity-50" onClick={onClose} />
 
-      {/* Modal box */}
-      <div
-        className="
-          relative
-          bg-white
-          rounded-2xl
-          shadow-lg
-          w-full
-          max-w-4xl
-          mx-auto
-          overflow-hidden
-          max-h-[90vh]
-          flex flex-col
-        "
-      >
-        {/* Close button */}
+      {/* Modal */}
+      <div className="relative w-full max-w-5xl mx-auto bg-white rounded-2xl shadow-lg overflow-hidden max-h-[90vh]">
+        {/* Close */}
         <button
-          className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 z-10"
           onClick={onClose}
+          className="absolute top-4 right-4 text-white bg-gray-800 rounded-full w-8 h-8 flex items-center justify-center hover:bg-gray-900 z-10"
         >
           ✕
         </button>
 
-        {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto grid grid-cols-1 md:grid-cols-2">
-          {/* Left: Contact Info */}
-          <div className="bg-[#FA9426] p-8 text-white">
-            <h2 className="text-2xl font-semibold mb-4">Contact Information</h2>
-            <p className="mb-6">
-              We're here to offer guidance in a wide range of financial, tax, and business needs.
-            </p>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-center">
-                <img src={phoneIcon} alt="Phone" className="w-6 h-6 mr-3" />
-                +91-9413730750
-              </li>
-              <li className="flex items-center">
-                <img src={letterIcon} alt="Email" className="w-6 h-6 mr-3" />
-                karsutrahq@gmail.com
-              </li>
-              <li className="flex items-start">
-                <img src={buildingIcon} alt="Office" className="w-6 h-6 mr-3 mt-1" />
-                4th Floor, ENKAY TOWER, Phase V, Udyog Vihar, Sector 19,<br />
-                Gurugram, Haryana 122001
-              </li>
-            </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 h-full">
+          {/* Left: Background + Contact Info */}
+          <div className="relative">
+            <img
+              src={bgImage}
+              alt="Office background"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-[rgba(0,160,239,0.7)]" />
+
+            <div className="relative h-full flex flex-col justify-between text-white p-8">
+              <h2 className="text-3xl font-bold">Contact us</h2>
+
+              <div className="bg-white bg-opacity-90 rounded-xl p-6 text-gray-800 max-w-sm">
+                <ul className="space-y-4 text-sm">
+                  <li className="flex items-center">
+                    <img src={phoneIcon} alt="" className="w-5 h-5 mr-3" />
+                    +91-9876543210
+                  </li>
+                  <li className="flex items-center">
+                    <img src={letterIcon} alt="" className="w-5 h-5 mr-3" />
+                    support@cryptomaty.com
+                  </li>
+                  <li className="flex items-start">
+                    <img
+                      src={locationIcon}
+                      alt=""
+                      className="w-5 h-5 mr-3 mt-1"
+                    />
+                    4th Floor, ENKAY TOWER, Phase V, Udyog Vihar,<br />
+                    Sector 19, Gurugram, Haryana 122001
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Right: Form */}
-          <form className="p-8" onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 gap-4">
-              <div>
-                <label className="block text-sm font-medium mb-1">Your Name</label>
-                <input
-                  name="name"
-                  value={form.name}
-                  onChange={handleChange}
-                  type="text"
-                  className="w-full border-b border-gray-300 focus:outline-none py-2"
-                  placeholder="Enter your full name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Mobile Number</label>
-                <input
-                  name="mobile"
-                  value={form.mobile}
-                  onChange={handleChange}
-                  type="tel"
-                  pattern="\d{10}"
-                  title="Enter exactly 10 digits"
-                  className="w-full border-b border-gray-300 focus:outline-none py-2"
-                  placeholder="Enter your mobile number"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Your Email</label>
-                <input
-                  name="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  type="email"
-                  pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
-                  title="Email must end with @gmail.com"
-                  className="w-full border-b border-gray-300 focus:outline-none py-2"
-                  placeholder="Enter your mail id"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Service</label>
-                <select
-                  name="service"
-                  value={form.service}
-                  onChange={handleChange}
-                  className="w-full border-b border-gray-300 focus:outline-none py-2"
-                  required
-                >
-                  <option value="">Select a service</option>
-                  {services.map(s => (
-                    <option key={s} value={s}>{s}</option>
-                  ))}
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Message</label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  className="w-full border border-gray-300 focus:outline-none rounded-md p-2"
-                  rows="4"
-                  placeholder="Write your message here..."
-                  required
-                />
-              </div>
+          <div className="p-8 overflow-y-auto">
+            <h3 className="text-2xl font-semibold text-[#00A0EF] mb-6">
+              Send Us A Message
+            </h3>
 
-              {/* Status message */}
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Name"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none"
+                required
+              />
+              <input
+                name="mobile"
+                value={form.mobile}
+                onChange={handleChange}
+                type="tel"
+                placeholder="Mobile Number"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none"
+                required
+                pattern="\d{10}"
+                title="10 digits"
+              />
+              <input
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                type="email"
+                placeholder="Email"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none"
+                required
+                pattern="^[A-Za-z0-9._%+-]+@gmail\.com$"
+                title="Must end with @gmail.com"
+              />
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="Message"
+                className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none h-32"
+                required
+              />
+
               {status && (
                 <p
-                  className={
-                    status.type === 'success'
-                      ? 'text-green-600 font-medium'
-                      : 'text-red-600 font-medium'
-                  }
+                  className={`text-sm font-medium ${
+                    status.type === "success"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
                 >
                   {status.message}
                 </p>
@@ -218,14 +169,14 @@ export default function ContactFormModal({ onClose }) {
 
               <button
                 type="submit"
-                className="mt-2 bg-[#FA9426] hover:bg-[#D97E0D] text-white font-medium py-2 px-4 rounded-xl transition"
+                className="w-full bg-[#00A0EF] hover:bg-[rgba(0,160,239,0.7)] text-white font-medium py-3 rounded-xl transition"
               >
-                Send Message
+                Send
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

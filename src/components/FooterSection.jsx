@@ -7,7 +7,7 @@ import linkedinIcon from "../assets/linkedin.svg";
 import instagramIcon from "../assets/instagram.svg";
 import telegramIcon from "../assets/telegram.svg";
 
-export default function FooterSection() {
+export default function FooterSection({ onGetInTouch }) {
   return (
     <footer className="bg-white py-12">
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -37,13 +37,13 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* Column 1 */}
+        {/* Company Links (scroll to sections) */}
         <div>
           <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
           <ul className="space-y-2 text-gray-600">
             <li>
-              <a href="#about" className="hover:text-gray-900">
-                About Us
+              <a href="#home" className="hover:text-gray-900">
+                Home
               </a>
             </li>
             <li>
@@ -59,14 +59,17 @@ export default function FooterSection() {
           </ul>
         </div>
 
-        {/* Column 2 */}
+        {/* Resources Links (popup on Contact Us) */}
         <div>
           <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
           <ul className="space-y-2 text-gray-600">
             <li>
-              <a href="#contact" className="hover:text-gray-900">
+              <button
+                onClick={onGetInTouch}
+                className="hover:text-gray-900"
+              >
                 Contact Us
-              </a>
+              </button>
             </li>
             <li>
               <a href="#integrations" className="hover:text-gray-900">
@@ -76,9 +79,9 @@ export default function FooterSection() {
           </ul>
         </div>
 
-        {/* Column 3 updated with React Router Links */}
+        {/* Legal Links */}
         <div>
-          <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
+          <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
           <ul className="space-y-2 text-gray-600">
             <li>
               <Link to="/privacy" className="hover:text-gray-900">

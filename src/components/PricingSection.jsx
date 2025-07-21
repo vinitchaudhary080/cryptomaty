@@ -60,7 +60,7 @@ export default function PricingSection() {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-        <section className="py-16 bg-[#F7FCFF]">
+        <section id="pricing" className="py-16 bg-[#F7FCFF]">
       <div className="container mx-auto px-4 space-y-8">
         {/* Heading */}
         <div className="text-center space-y-2">

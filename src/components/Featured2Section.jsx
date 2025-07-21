@@ -6,7 +6,7 @@ const Featured2Section = () => (
   <section className="py-16 bg-white">
     <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
       {/* Left: Strategy Templates Mockup */}
-      <div className="flex justify-center md:justify-end">
+      <div className="flex justify-center md:justify-start">
         <img
           src={strategyImg}
           alt="Strategy Templates"
