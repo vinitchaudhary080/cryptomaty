@@ -4,7 +4,7 @@ import emailjs from "emailjs-com";
 import phoneIcon from "../assets/Phone Rounded.svg";
 import letterIcon from "../assets/Letter.svg";
 import locationIcon from "../assets/Buildings.svg";
-import bgImage from "../assets/contact-bg.png"; // your office‐interior image
+import bgImage from "../assets/contact-bg.jpg"; // your office‐interior image
 
 emailjs.init("ytKzA4OdeQE6M0Ua2");
 

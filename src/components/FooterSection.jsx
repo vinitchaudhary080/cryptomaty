@@ -30,7 +30,7 @@ export default function FooterSection({ onGetInTouch }) {
             Built for traders. Trusted by thousands.
           </p>
           <div className="flex space-x-4">
-            
+
             <a
               href="https://www.youtube.com/@AlgoRooms"
               target="_blank"
@@ -39,7 +39,7 @@ export default function FooterSection({ onGetInTouch }) {
             >
               <img src={youtubeIcon} alt="YouTube" className="h-6 w-6" />
             </a>
-           
+
             <a
               href="https://www.instagram.com/cryptomatyofficial"
               target="_blank"
@@ -48,7 +48,7 @@ export default function FooterSection({ onGetInTouch }) {
             >
               <img src={instagramIcon} alt="Instagram" className="h-6 w-6" />
             </a>
-           
+
           </div>
         </div>
 
@@ -91,18 +91,20 @@ export default function FooterSection({ onGetInTouch }) {
           <h4 className="font-semibold text-gray-900 mb-4">Resources</h4>
           <ul className="space-y-2 text-gray-600">
             <li>
-              <button
-                onClick={onGetInTouch}
+              <a
+                href="https://wa.me/917049850866"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-gray-900"
               >
                 Contact Us
-              </button>
+              </a>
             </li>
-            <li>
+            {/* <li>
               <a href="#integrations" className="hover:text-gray-900">
                 Integrations
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 

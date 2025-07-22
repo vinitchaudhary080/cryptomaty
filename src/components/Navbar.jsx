@@ -53,15 +53,15 @@ export default function Navbar({ onGetInTouch }) {
             </a>
           </li> */}
           <li>
-            <button
-              onClick={() => {
-                closeMenu();
-                onGetInTouch();
-              }}
+            <a
+              href="https://wa.me/917049850866"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
               className="text-gray-700 hover:text-gray-900"
             >
               Contact Us
-            </button>
+            </a>
           </li>
         </ul>
 
@@ -147,15 +147,15 @@ export default function Navbar({ onGetInTouch }) {
               </a>
             </li> */}
             <li>
-              <button
-                onClick={() => {
-                  closeMenu();
-                  onGetInTouch();
-                }}
+              <a
+                href="https://wa.me/917049850866"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenu}
                 className="w-full text-left text-blue-500 border border-blue-500 rounded-xl px-4 py-2 hover:bg-blue-50 transition"
               >
                 Contact Us
-              </button>
+              </a>
             </li>
           </ul>
         </div>
