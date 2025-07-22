@@ -18,12 +18,13 @@ const Hero = () => (
 
       {/* Buttons */}
       <div className="flex justify-center space-x-4 mb-16">
-  <button
-    className="bg-blue-500 hover:bg-blue-600 text-white font-medium
-               text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg"
-  >
-    Get Started Free
-  </button>
+  <a
+          href="https://web.cryptomaty.com/"
+          className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium
+                     text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg text-center"
+        >
+          Get Started Free
+        </a>
   <button
     className="bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 font-medium
                text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg inline-flex items-center"

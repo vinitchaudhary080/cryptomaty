@@ -23,9 +23,12 @@ const Featured4Section = () => (
         <p className="text-gray-600 mb-6">
           Enable trading mode to monitor multiple charts, analyze trends, and make faster decisions — all from a single, clutter-free dashboard.
         </p>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg">
+         <a
+          href="https://web.cryptomaty.com/"
+          className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg inline-block text-center"
+        >
           Get Started Free
-        </button>
+        </a>
       </div>
 
     </div>
