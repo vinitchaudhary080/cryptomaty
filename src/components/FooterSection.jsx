@@ -74,7 +74,7 @@ export default function FooterSection({ onGetInTouch }) {
                 Features
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="#pricing"
                 onClick={(e) => handleScroll(e, "pricing")}
@@ -82,7 +82,7 @@ export default function FooterSection({ onGetInTouch }) {
               >
                 Pricing
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -120,11 +120,11 @@ export default function FooterSection({ onGetInTouch }) {
                 Terms &amp; Conditions
               </Link>
             </li>
-            <li>
+            {/* <li>
               <a href="#refund" className="hover:text-gray-900">
                 Refund Policy
               </a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

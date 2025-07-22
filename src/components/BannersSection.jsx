@@ -21,7 +21,7 @@ export default function BannerSection() {
               href="https://web.cryptomaty.com/"
               className="bg-blue-500 hover:bg-blue-600 text-white font-medium px-6 py-3 rounded-lg inline-block text-center"
             >
-              Get 14 Days Free Trial
+              Try Cryptomaty Free
             </a>
 
           </div>

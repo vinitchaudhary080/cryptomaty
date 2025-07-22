@@ -48,7 +48,7 @@ export default function App() {
               <Feature4Section />
               <StayInfoSection />
               <TestinomailsSection />
-              <Pricing />
+              {/* <Pricing /> */}
               <FAQS />
               <Banners />
               <FooterSection onGetInTouch={() => setIsFormOpen(true)} />

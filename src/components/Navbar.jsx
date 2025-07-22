@@ -43,7 +43,7 @@ export default function Navbar({ onGetInTouch }) {
               Features
             </a>
           </li>
-          <li>
+          {/* <li>
             <a
               href="#pricing"
               onClick={(e) => handleScroll(e, "pricing")}
@@ -51,7 +51,7 @@ export default function Navbar({ onGetInTouch }) {
             >
               Pricing
             </a>
-          </li>
+          </li> */}
           <li>
             <button
               onClick={() => {
@@ -137,7 +137,7 @@ export default function Navbar({ onGetInTouch }) {
                 Features
               </a>
             </li>
-            <li>
+            {/* <li>
               <a
                 href="#pricing"
                 onClick={(e) => handleScroll(e, "pricing")}
@@ -145,7 +145,7 @@ export default function Navbar({ onGetInTouch }) {
               >
                 Pricing
               </a>
-            </li>
+            </li> */}
             <li>
               <button
                 onClick={() => {
