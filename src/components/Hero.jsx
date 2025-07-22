@@ -25,10 +25,13 @@ const Hero = () => (
         >
           Get Started Free
         </a>
-  <button
-    className="bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 font-medium
-               text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg inline-flex items-center"
-  >
+  <a
+   href="https://www.youtube.com/@AlgoRooms"
+   target="_blank"
+   rel="noopener noreferrer"
+   className="bg-white hover:bg-gray-100 border border-gray-300 text-gray-700 font-medium
+              text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg inline-flex items-center"
+ >
     <svg
       className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
       fill="none"
@@ -43,7 +46,7 @@ const Hero = () => (
       />
     </svg>
     How it’s Works
-  </button>
+  </a>
 </div>
 
 

@@ -3,6 +3,9 @@ import React from "react";
 import amanAvatar from "../assets/aman-mehra.jpg";
 import snehaAvatar from "../assets/sneha-kulkarni.jpg";
 import karanAvatar from "../assets/karan-patel.jpg";
+import priya from "../assets/priya.jpg";
+import rohit from "../assets/rohit.jpg";
+import neha from "../assets/payal.jpg";
 
 const testimonials = [
   {
@@ -33,31 +36,31 @@ const testimonials = [
     rating: 5.0,
   },
   // repeat the above three for the second row
-  {
-    avatar: amanAvatar,
-    name: "Aman Mehra",
-    role: "Full-Time Trader",
-    title: "The AI screener alone is a game-changer!",
+   {
+    avatar: priya,
+    name: "Priya Singh",
+    role: "Day Trader",
+    title: "Real-Time Charts Are Invaluable",
     quote:
-      "I spot bullish coins early and execute trades faster. The dashboard gives me the edge I needed.",
-    rating: 5.0,
+      "The live chart updates and sentiment indicators help me time my entries perfectly. Couldn't trade without it now!",
+    rating: 4.8,
   },
   {
-    avatar: snehaAvatar,
-    name: "Sneha Kulkarni",
-    role: "Swing Trader",
-    title: "Deployed my first strategy in minutes.",
+    avatar: rohit,
+    name: "Rohit Desai",
+    role: "Algorithmic Trader",
+    title: "Effortless Broker Integrations",
     quote:
-      "Strategy builder + backtest = perfect combo. No coding, no headache. Just profits.",
-    rating: 5.0,
+      "Connecting my exchange APIs was seamless. Now my P&L updates in real time — saves me hours every week.",
+    rating: 4.9,
   },
   {
-    avatar: karanAvatar,
-    name: "Karan Patel",
-    role: "Options Trader",
-    title: "Now I track everything from one place.",
+    avatar: neha,
+    name: "Neha Gupta",
+    role: "Crypto Enthusiast",
+    title: "Support Team Exceeded Expectations",
     quote:
-      "Charts, broker P&L, strategy ROI — sab kuch ek dashboard mein! Game changer.",
+      "I had a few setup questions and their support team responded almost instantly. Their guidance was spot on!",
     rating: 5.0,
   },
 ];

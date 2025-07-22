@@ -6,6 +6,7 @@ import facebookIcon from "../assets/facebook.svg";
 import linkedinIcon from "../assets/linkedin.svg";
 import instagramIcon from "../assets/instagram.svg";
 import telegramIcon from "../assets/telegram.svg";
+import youtubeIcon from "../assets/youtube.svg";
 
 export default function FooterSection({ onGetInTouch }) {
   // Scroll helper
@@ -29,18 +30,25 @@ export default function FooterSection({ onGetInTouch }) {
             Built for traders. Trusted by thousands.
           </p>
           <div className="flex space-x-4">
-            <a href="#" aria-label="Facebook">
-              <img src={facebookIcon} alt="Facebook" className="h-6 w-6" />
+            
+            <a
+              href="https://www.youtube.com/@AlgoRooms"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <img src={youtubeIcon} alt="YouTube" className="h-6 w-6" />
             </a>
-            <a href="#" aria-label="LinkedIn">
-              <img src={linkedinIcon} alt="LinkedIn" className="h-6 w-6" />
-            </a>
-            <a href="#" aria-label="Instagram">
+           
+            <a
+              href="https://www.instagram.com/cryptomatyofficial"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
               <img src={instagramIcon} alt="Instagram" className="h-6 w-6" />
             </a>
-            <a href="#" aria-label="Telegram">
-              <img src={telegramIcon} alt="Telegram" className="h-6 w-6" />
-            </a>
+           
           </div>
         </div>
 
